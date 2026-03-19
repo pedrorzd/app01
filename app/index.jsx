@@ -13,26 +13,13 @@ function Cronometro(){
       }, 1000);
     }
 
-    function alterarTexto(){
-      useEffect(() => {
-        let textoCronometro;
-
-        if(rodando){
-          textoCronometro = "Pausar"
-        } else {
-          textoCronometro = "Iniciar"
-        }
-
-      return () => clearInterval(intervalo);
-      }, [rodando, tempo]);
-    }
-
   return () => textoCronometro;
   }, []);
 }
 
 export default function Index() {
   const [rodando, setRodando] = useState(false);
+  
   function alternar(){
     setRodando(!rodando);
   }
@@ -51,7 +38,7 @@ export default function Index() {
       </Text>
       <Pressable onPress={alternar}
       style={rodando ? style.buttonStart : style.buttonStop}>
-        <Text style={style.textButton}>{textoCronometro}</Text>
+        <Text style={style.textButton}>{rodando ? "Parar" : "Iniciar"}</Text>
       </Pressable>
     </View>
     <View style={style.footer}>
