@@ -26,6 +26,30 @@ export default function Index() {
   return (
     <View style={[style.container, {background: theme.colors.background}]}>
       <Image style={style.image} source={require('./relogio.png')} />
+
+      {/* Menu */}
+
+      <View style={[style.topo, {backgroundColor: theme.colors.primary }]}>
+        <Pressable 
+          style={style.botaoTopo}
+          onPress={() => router.push("/")}>
+          <Text style={style.textoBotaoTopo}>Home</Text>  
+        </Pressable>
+        <Pressable 
+          style={style.botaoTopo}
+          onPress={() => router.push("/TelaA")}>
+          <Text style={style.textoBotaoTopo}>Tela A</Text>  
+        </Pressable>
+        <Pressable 
+          style={style.botaoTopo}
+          onPress={() => router.push("/TelaB")}>
+          <Text style={style.textoBotaoTopo}>Tela B</Text>  
+        </Pressable>
+      </View>
+
+
+      {/* Relógio */}
+
       <View style={style.actions}>
         <Text style={style.timer}>
           {minutos}:{segundos}
@@ -48,11 +72,14 @@ export default function Index() {
         >
           {rodando ? "Cronômetro Iniciado" : "Cronômetro pausado"}
         </Snackbar>
-    </View>
-    <View style={style.footer}>
-      <Text style={style.textfooter}>Curso de react</Text>
-      <Text style={style.textfooter}>2026 - Meu App</Text>
-    </View>
+      </View>
+
+      {/* Footer */}
+      
+      <View style={style.footer}>
+        <Text style={style.textfooter}>Curso de react</Text>
+        <Text style={style.textfooter}>2026 - Meu App</Text>
+      </View>
     </View>
   );
 }
