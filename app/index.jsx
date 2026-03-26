@@ -1,6 +1,6 @@
+import { router } from "expo-router";
 import { useEffect, useState } from 'react';
-//import { router } from "expo-router";
-import { Image, StyleSheet, Text, View } from "react-native";
+import { Image, Pressable, StyleSheet, Text, View } from "react-native";
 import { Button, Snackbar, useTheme } from "react-native-paper";
 
 export default function Index() {
@@ -14,55 +14,55 @@ export default function Index() {
   useEffect(() => {
     let intervalo;
 
-    if(rodando && tempo > 0){
+    if (rodando && tempo > 0) {
       intervalo = setInterval(() => {
         setTempo((valorAnterior) => valorAnterior - 1);
       }, 1000);
     }
 
-  return () => clearInterval(intervalo);
+    return () => clearInterval(intervalo);
   }, [rodando, tempo]);
-  
+
   return (
-    <View style={[style.container, {background: theme.colors.background}]}>
-      <Image style={style.image} source={require('./relogio.png')} />
+    <View style={[style.container, { background: theme.colors.background }]}>
 
       {/* Menu */}
 
-      <View style={[style.topo, {backgroundColor: theme.colors.primary }]}>
-        <Pressable 
+      <View style={[style.topo, { backgroundColor: theme.colors.primary }]}>
+        <Pressable
           style={style.botaoTopo}
           onPress={() => router.push("/")}>
-          <Text style={style.textoBotaoTopo}>Home</Text>  
+          <Text style={style.textoBotaoTopo}>Home</Text>
         </Pressable>
-        <Pressable 
+        <Pressable
           style={style.botaoTopo}
-          onPress={() => router.push("/TelaA")}>
-          <Text style={style.textoBotaoTopo}>Tela A</Text>  
+          onPress={() => router.push("/telaA")}>
+          <Text style={style.textoBotaoTopo}>Tela A</Text>
         </Pressable>
-        <Pressable 
+        <Pressable
           style={style.botaoTopo}
-          onPress={() => router.push("/TelaB")}>
-          <Text style={style.textoBotaoTopo}>Tela B</Text>  
+          onPress={() => router.push("/telaB")}>
+          <Text style={style.textoBotaoTopo}>Tela B</Text>
         </Pressable>
       </View>
 
-
       {/* Relógio */}
+
+      <Image style={style.image} source={require('./relogio.png')} />
 
       <View style={style.actions}>
         <Text style={style.timer}>
           {minutos}:{segundos}
         </Text>
-        <Button mode="contained" 
-            style={[rodando ? style.buttonStart : style.buttonStop,
-            {backgroundColor: rodando ? "#990000" : theme.colors.secondary}]}
-            lebelStyle={style.textButton}
-            onPress={() => {
-              setRodando(!rodando);
-              setExibeMensagem(true);
-            }}> 
-          {rodando ? "Pausar" : "Iniciar"} 
+        <Button mode="contained"
+          style={[rodando ? style.buttonStart : style.buttonStop,
+          { backgroundColor: rodando ? "#990000" : theme.colors.secondary }]}
+          lebelStyle={style.textButton}
+          onPress={() => {
+            setRodando(!rodando);
+            setExibeMensagem(true);
+          }}>
+          {rodando ? "Pausar" : "Iniciar"}
         </Button>
 
         <Snackbar
@@ -75,7 +75,7 @@ export default function Index() {
       </View>
 
       {/* Footer */}
-      
+
       <View style={style.footer}>
         <Text style={style.textfooter}>Curso de react</Text>
         <Text style={style.textfooter}>2026 - Meu App</Text>

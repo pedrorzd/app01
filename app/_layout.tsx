@@ -11,8 +11,15 @@ const tema = {
     background: "#bb069d",
     surface: "#144480",
     onPrimary: "#FFFFFF",
+  },
+
+  button: {
+    start: "#000000"
   }
 };
+
+
+
 
 export default function RootLayout() {
   return (
