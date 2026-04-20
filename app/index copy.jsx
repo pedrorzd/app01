@@ -1,5 +1,6 @@
+import { router } from "expo-router";
 import { useEffect, useState } from "react";
-import { Image, StyleSheet, Text, View } from "react-native";
+import { Image, Pressable, StyleSheet, Text, View } from "react-native";
 import { Button, Snackbar, useTheme } from "react-native-paper";
 
 export default function Index() {
@@ -32,6 +33,33 @@ export default function Index() {
 
   return (
     <View style={[style.container, { backgroundColor: theme.colors.background }]}>
+      <View style={[style.topo, { backgroundColor: theme.colors.primary }]}>
+        <Pressable
+          style={style.botaoTopo}
+          onPress={() => router.push("/")}>
+          <Text style={style.textoBotaoTopo}>Home</Text>
+        </Pressable>
+        <Pressable
+          style={style.botaoTopo}
+          onPress={() => router.push("/telaA")}>
+          <Text style={style.textoBotaoTopo}>Tela A</Text>
+        </Pressable>
+        <Pressable
+          style={style.botaoTopo}
+          onPress={() => router.push("/telaB")}>
+          <Text style={style.textoBotaoTopo}>Tela B</Text>
+        </Pressable>
+        <Pressable
+          style={style.botaoTopo}
+          onPress={() => router.push("/telaC")}>
+          <Text style={style.textoBotaoTopo}>Tela C</Text>
+        </Pressable>
+        <Pressable
+          style={style.botaoTopo}
+          onPress={() => router.push("/telaD")}>
+          <Text style={style.textoBotaoTopo}>Tela D</Text>
+        </Pressable>
+      </View>
 
       <View style={style.conteudo}>
         <Image source={require("./relogio.png")} style={style.image} />
