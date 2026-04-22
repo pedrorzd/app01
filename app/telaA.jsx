@@ -1,8 +1,8 @@
-import { StyleSheet, View, VirtualizedList } from "react-native";
+import { FlatList, StyleSheet, View } from "react-native";
 import { useTheme } from "react-native-paper";
 import ContatoItem from "./ContatoItem";
 
-export default function TelaB() {
+export default function TelaA() {
   const theme = useTheme();
 
   const contatos = [
@@ -20,24 +20,16 @@ export default function TelaB() {
     { id: "12", nome: "Jony", telefone: "11 99999-0005", avatar: "https://i.pravatar.cc/150?img=12" },
   ];
 
-  // 🔹 Funções obrigatórias no VirtualizedList
-  const getItem = (data, index) => data[index];
-  const getItemCount = (data) => data.length;
-
   return (
     <View style={[styles.container, { backgroundColor: theme.colors.background }]}>
       <View style={styles.areaLista}>
-        <VirtualizedList
-          data={contatos}
-          initialNumToRender={5} // quantos itens renderizar inicialmente
+        <FlatList data={contatos} keyExtractor={(item) => item.id}
+
           renderItem={({ item, index }) => (
             <ContatoItem item={item} index={index} />
           )}
-          keyExtractor={(item) => item.id}
-          getItem={getItem}
-          getItemCount={getItemCount}
-          contentContainerStyle={styles.lista}
-          showsVerticalScrollIndicator={false}
+         contentContainerStyle={styles.lista}
+         showsVerticalScrollIndicator={false}
         />
       </View>
     </View>
@@ -47,6 +39,28 @@ export default function TelaB() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+  },
+
+  topo: {
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+    paddingTop: 18,
+    paddingBottom: 14,
+    paddingHorizontal: 12,
+  },
+
+  botaoTopo: {
+    paddingVertical: 8,
+    paddingHorizontal: 18,
+    backgroundColor: "#1d5db3",
+    borderRadius: 8,
+  },
+
+  textoBotaoTopo: {
+    color: "#FFFFFF",
+    fontWeight: "bold",
+    fontSize: 16,
   },
 
   areaLista: {
@@ -60,5 +74,45 @@ const styles = StyleSheet.create({
 
   lista: {
     paddingBottom: 10,
+  },
+
+  card: {
+    borderRadius: 8,
+    alignItems: "center",
+    paddingVertical: 14,
+    marginBottom: 12,
+  },
+
+  avatar: {
+    width: 54,
+    height: 54,
+    borderRadius: 27,
+    marginBottom: 8,
+  },
+
+  nome: {
+    fontSize: 16,
+    fontWeight: "bold",
+    color: "#222222",
+  },
+
+  telefone: {
+    fontSize: 12,
+    color: "#666666",
+    marginTop: 4,
+  },
+
+  rodape: {
+    paddingVertical: 12,
+    alignItems: "center",
+    backgroundColor: "#EAEAEA",
+    borderTopWidth: 1,
+    borderTopColor: "#D0D0D0",
+  },
+
+  textoRodape: {
+    fontSize: 14,
+    color: "#3B82F6",
+    fontWeight: "500",
   },
 });

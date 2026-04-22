@@ -1,40 +1,44 @@
-import { Image, StyleSheet, Text, View } from "react-native";
-//Componente 
-export default function ContatoItem({ item, index }) {
+import { Image, Pressable, StyleSheet, Text, View } from "react-native";
+
+export default function ContatoItem({ item, onPress }) {
   return (
-    <View
-      style={[
-        styles.card,
-        { backgroundColor: index % 2 === 0 ? "#DDEEF2" : "#F3DDE7" }
-      ]}
-    >
+    <Pressable style={styles.card} onPress={onPress}>
       <Image source={{ uri: item.avatar }} style={styles.avatar} />
-      <Text style={styles.nome}>{item.nome}</Text>
-      <Text style={styles.telefone}>{item.telefone}</Text>
-    </View>
+
+      <View style={styles.info}>
+        <Text style={styles.nome}>{item.nome}</Text>
+        <Text style={styles.telefone}>{item.telefone}</Text>
+      </View>
+    </Pressable>
   );
 }
 
 const styles = StyleSheet.create({
   card: {
-    padding: 16,
-    borderRadius: 12,
-    marginVertical: 6,
-    marginHorizontal: 12,
-    alignItems: "center"
+    flexDirection: "row",
+    alignItems: "center",
+    backgroundColor: "#FFFFFF",
+    padding: 12,
+    borderRadius: 8,
+    marginBottom: 10,
   },
   avatar: {
-    width: 60,
-    height: 60,
-    borderRadius: 30,
-    marginBottom: 8
+    width: 54,
+    height: 54,
+    borderRadius: 27,
+    marginRight: 12,
+  },
+  info: {
+    flex: 1,
   },
   nome: {
-    fontSize: 18,
-    fontWeight: "bold"
+    fontSize: 16,
+    fontWeight: "bold",
+    color: "#222222",
   },
   telefone: {
     fontSize: 14,
-    color: "#555"
-  }
+    color: "#666666",
+    marginTop: 4,
+  },
 });
