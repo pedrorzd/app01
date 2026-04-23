@@ -1,7 +1,8 @@
-import { FlatList, Image, StyleSheet, Text, View } from "react-native";
+import { FlatList, StyleSheet, View } from "react-native";
 import { useTheme } from "react-native-paper";
+import ContatoItem from "../ContatoItem";
 
-export default function TelaB() {
+export default function TelaA() {
   const theme = useTheme();
 
   const contatos = [
@@ -22,22 +23,13 @@ export default function TelaB() {
   return (
     <View style={[styles.container, { backgroundColor: theme.colors.background }]}>
       <View style={styles.areaLista}>
-        <FlatList
-          data={contatos}
-          keyExtractor={(item) => item.id}
+        <FlatList data={contatos} keyExtractor={(item) => item.id}
+
           renderItem={({ item, index }) => (
-            <View
-              style={[
-                styles.card,
-                { backgroundColor: index % 2 === 0 ? "#DDEEF2" : "#F3DDE7" }
-              ]}>
-              <Image source={{ uri: item.avatar }} style={styles.avatar} />
-              <Text style={styles.nome}>{item.nome}</Text>
-              <Text style={styles.telefone}>{item.telefone}</Text>
-            </View>
+            <ContatoItem item={item} index={index} />
           )}
-          contentContainerStyle={styles.lista}
-          showsVerticalScrollIndicator={false}
+         contentContainerStyle={styles.lista}
+         showsVerticalScrollIndicator={false}
         />
       </View>
     </View>
