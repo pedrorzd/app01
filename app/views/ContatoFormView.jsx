@@ -4,8 +4,8 @@ import { useEffect, useState } from "react";
 import { StyleSheet, View } from "react-native";
 import { Button, Switch, Text, TextInput, useTheme } from "react-native-paper";
 
-import ContatoEntity from "./ContatoEntity";
-import ContatoService from "./ContatoService";
+import ContatoEntity from "../entities/ContatoEntity";
+import ContatoService from "../services/ContatoService";
 
 export default function ContatoFormView() {
   const theme = useTheme();
@@ -86,6 +86,11 @@ export default function ContatoFormView() {
 
       <Text style={styles.label}>Categoria</Text>
       <View style={styles.pickerContainer}>
+        {/*
+          O @react-native-picker/picker nao esta instalado!
+          Para usar ele, eh necessario adicionar a dependencia:
+          npx expo install @react-native-picker/picker
+        */}
         <Picker
           selectedValue={categoria}
           onValueChange={(itemValue) => setCategoria(itemValue)}

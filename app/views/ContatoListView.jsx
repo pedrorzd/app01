@@ -1,6 +1,6 @@
 import { FlatList, StyleSheet, View } from "react-native";
 import { useTheme } from "react-native-paper";
-import ContatoItem from "../ContatoItem";
+import ContatoItem from "../components/ContatoItem";
 
 export default function TelaA() {
   const theme = useTheme();
@@ -74,32 +74,6 @@ const styles = StyleSheet.create({
 
   lista: {
     paddingBottom: 10,
-  },
-
-  card: {
-    borderRadius: 8,
-    alignItems: "center",
-    paddingVertical: 14,
-    marginBottom: 12,
-  },
-
-  avatar: {
-    width: 54,
-    height: 54,
-    borderRadius: 27,
-    marginBottom: 8,
-  },
-
-  nome: {
-    fontSize: 16,
-    fontWeight: "bold",
-    color: "#222222",
-  },
-
-  telefone: {
-    fontSize: 12,
-    color: "#666666",
-    marginTop: 4,
   },
 
   rodape: {

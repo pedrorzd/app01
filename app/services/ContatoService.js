@@ -1,4 +1,4 @@
-import ContatoEntity from "./ContatoEntity";
+import ContatoEntity from "../entities/ContatoEntity";
 
 let contatos = [
   new ContatoEntity(
