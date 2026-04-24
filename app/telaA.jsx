@@ -1,6 +1,6 @@
 import { FlatList, StyleSheet, View } from "react-native";
 import { useTheme } from "react-native-paper";
-import ContatoItem from "./ContatoItem";
+import ContatoItem from "./components/ContatoItem";
 
 export default function TelaA() {
   const theme = useTheme();
