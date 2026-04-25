@@ -12,9 +12,6 @@
   "include": [
     "**/*.ts",
     "**/*.tsx",
-    ".expo/types/**/*.ts",
-    "expo-env.d.ts"
-,
     "appAntigo/index.jsx",
     "appAntigo/(tabs)/index.jsx"
   ]
