@@ -18,7 +18,7 @@ export default function RootLayout() {
   return (
     <PaperProvider theme={tema}>
       <TopDropDownMenu></TopDropDownMenu>
-      <Slot />
+      <Slot/>
     </PaperProvider>
   );
 }
