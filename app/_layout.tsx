@@ -1,7 +1,6 @@
 import { Slot } from "expo-router";
 import { MD3LightTheme, PaperProvider } from "react-native-paper";
 import TopDropDownMenu from "./components/TopDropDownMenu";
-import React from "react";
 
 const tema = {
   ...MD3LightTheme,

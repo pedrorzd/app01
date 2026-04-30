@@ -86,11 +86,6 @@ export default function ContatoFormView() {
 
       <Text style={styles.label}>Categoria</Text>
       <View style={styles.pickerContainer}>
-        {/*
-          O @react-native-picker/picker nao esta instalado!
-          Para usar ele, eh necessario adicionar a dependencia:
-          npx expo install @react-native-picker/picker
-        */}
         <Picker
           selectedValue={categoria}
           onValueChange={(itemValue) => setCategoria(itemValue)}

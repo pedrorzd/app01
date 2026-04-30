@@ -3,7 +3,7 @@ import ContatoEntity from "../entities/ContatoEntity";
 let contatos = [
   new ContatoEntity(
     "1",
-    "Alice",
+    "Maluco",
     "alice@email.com",
     "11 99999-0001",
     "https://i.pravatar.cc/150?img=1",

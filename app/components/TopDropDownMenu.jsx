@@ -19,9 +19,9 @@ export default function TopDropDownMenu() {
         anchor={<Appbar.Action icon="menu" color="black" onPress={openMenu} />}
       >
         <Menu.Item onPress={() => navigate('/')} title="Home" />
-        <Menu.Item onPress={() => navigate('/telaA')} title="Contatos" />
+        <Menu.Item onPress={() => navigate('/views/ContatoListView')} title="Contatos" />
       </Menu>
-      <Appbar.Content title="Meu App" />
+      <Appbar.Content title="Meus contatos" />
     </Appbar.Header>
   );
 }
